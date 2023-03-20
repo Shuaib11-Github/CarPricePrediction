@@ -1,0 +1,120 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Car Selling Price Prediction</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Car Selling Price Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">km_driven</label>
+            <input class="form-control" type="number" name="km_driven" 
+                placeholder="Enter km_driven" min='1' max='2360457' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Fuel_Type</label>
+            <select class="form-control" name="fuel" placeholder="Enter Fuel type" required>
+                <option class="placeholder" selected disabled value="">Select fuel</option>
+                <option value="Diesel">
+                    Diesel
+                </option>
+                <option value="Petrol">
+                    Petrol
+                </option>
+                <option value="CNG">
+                    CNG
+                </option>
+                <option value="LPG">
+                    LPG
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Seller_Type</label>
+            <select class="form-control" name="seller_type" placeholder="Enter seller type" required>
+                <option class="placeholder" selected disabled value="">Select seller type</option>
+                <option value="Individual">
+                    Individual
+                </option>
+                <option value="Dealer">
+                    Dealer
+                </option>
+                <option value="Trustmark Dealer">
+                    Trustmark Dealer
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Transmission</label>
+            <select class="form-control" name="transmission" placeholder="Enter transmission type" required>
+                <option class="placeholder" selected disabled value="">Select transmission Type</option>
+                <option value="Manual">
+                    Manual
+                </option>
+                <option value="Automatic">
+                    Automatic
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Owner_Type</label>
+            <select class="form-control" name="owner" placeholder="Enter owner type"
+                required>
+                <option class="placeholder" selected disabled value="">Select owner type</option>
+                <option value="First Owner">
+                    First Owner
+                </option>
+                <option value="Second Owner">
+                    Second Owner
+                </option>
+                <option value="Third Owner">
+                    Third Owner
+                </option>
+                <option value="Fourth & Above Owner">
+                    Fourth & Above Owner
+                </option>
+                <option value="Test Drive Car">
+                    Test Drive Car
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Seats available</label>
+            <input class="form-control" type="number" name="seats"
+                placeholder="Enter number of seats from [2,4,5,6,7,8,9,10,14]" min='2' max='14' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Torque in RPM</label>
+            <input class="form-control" type="number" name="torque_rpm"
+                placeholder="Enter Torque(in RPM)" min='400' max='43639' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Miles in kmpl</label>
+            <input class="form-control" type="number" name="mil_kmpl", step = "any"
+                placeholder="Enter miles(in kmpl)" min='0.0' max='42.0' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Engine in cc</label>
+            <input class="form-control" type="number" name="engine_cc"
+                placeholder="Enter engine(in cc)" min='624' max='3604' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Max_Power_New</label>
+            <input class="form-control" type="number" name="max_power_new", step = "any"
+                placeholder="Enter max_power_new" min='32.8' max='400' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">No_of_years</label>
+            <input class="form-control" type="number" name="No_of_years"
+                placeholder="Enter no of years" min='3' max='29' />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict selling price of a car" required />
+        </div>
+    </form>
+    <h2>
+       The  prediction is {{results}}
+    </h2>
+   <body>
+</html>
